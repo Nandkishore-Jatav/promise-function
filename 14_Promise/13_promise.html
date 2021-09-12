@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Promise js</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a, b, c, d, e;
+		a = 40;
+		b = 50;
+		
+		let pro = new Promise(function(resolve, reject){
+
+			// if(false){
+			if(a <= 40 && b >= 34){
+				resolve("I am successfull.");
+			}else{
+				reject("I am failed.");
+			}
+		});	
+
+		console.log(pro);
+		//****************************
+		
+		function prom(condition){
+			return new Promise(function(resolve, reject){
+
+				// if(false){
+				if(condition){
+					resolve("you are successfull.");
+				}else{
+					reject("you are failed.");
+				}
+			});	
+		}
+		console.log(prom(true));
+		//************************
+		function promi(nayan){
+			return new Promise(function(resolves, rejects){
+
+				// if(false){
+				if(nayan){
+					resolves("He will  successfull.");
+				}else{
+					rejects("He will fail.");
+				}
+			});	
+		}
+		
+		let onfulfilment = (result) => {
+			console.log(result)
+		}
+		let onRejection = (error) => {
+			console.log(error);
+		};	
+
+		promi(true).then(onfulfilment);
+		promi(false).catch(onRejection);
+		//****************************
+		function promis(nandkishore){
+			return new Promise(function(resolve, reject){
+				console.log("Please waiting.")
+				setTimeout(() => {
+					// if(false){
+					if(nandkishore){
+						resolve("Yes, I am  successfull.");
+					}else{
+						reject("No, I am failed.");
+					};
+				}, 2*3000)
+				
+			});	
+		}
+		
+		let onfulfilmentS = (result) => {
+			console.log(result)
+		}
+		let onRejectionS = (error) => {
+			console.log(error);
+		};	
+
+		// promis(true).then(onfulfilmentS);
+		// promis(false).catch(onRejectionS);
+
+		promis(false).then(onfulfilmentS).catch(onRejectionS);
+		//***************************
+
+		function promise(Nandkishore){
+			return new Promise(function(resolve, reject){
+				console.log("Please waiting.")
+				setTimeout(() => {
+					// if(false){
+					if(Nandkishore){
+						resolve("Jay Shree Ram");
+					}else{
+						reject("Ram Ram");
+					}	
+				}, 3000)
+				
+			});	
+		}
+
+		// promise(true).then((result) => {
+		// 	console.log(result)
+		// })
+		// promise(false).catch((error) => {
+		// 	console.log(error);
+		// });
+
+		promise(false).then((result) => {
+			console.log(result)
+		}).catch((error) => {
+			console.log(error)});
+		//***************************
+		function promises(d, e){
+			return new Promise(function(resolve, reject){
+				console.log("Please waiting.")
+				c = d/e;
+				setTimeout(() => {
+					// if(false){
+					if(c){
+						resolve(`Your Answer : ${c}`);
+					}else{
+						reject("Failed to Calculetes");
+					}	
+				}, 2000)
+				
+			});	
+		}
+
+		promises(54, 312).then((result) => {
+			console.log(result)
+		}).catch((error) => {
+			console.log(error)});
+		//**************************
+		function promiseName(){
+			return new Promise(function(resolve, reject){
+
+				console.log("Please waiting.");
+				setTimeout(() => {
+					$.get('https://jsonplaceholder.typicode.com/users', function (data){
+						resolve(data);
+					}).fail(err => {
+						reject("Fail to JSON.");
+					})
+				}, 1000)
+				
+			});	
+		}
+
+		promiseName().then((result) => {
+			console.log(result)
+		}).catch((error) => {
+			console.log(error)});
+		//******************************
+
+	</script>
+</body>
+</html>
